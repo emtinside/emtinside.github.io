@@ -1,0 +1,75 @@
+ul, p {
+    font-family: "Sofia Sans", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+h1 {
+    font-family: "Sofia Sans", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+}
+  
+.green{
+    font-family: "Sofia Sans", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    color: #56876D
+}
+
+button{
+    font-family: "Sofia Sans", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+
+    background: #56876D; /* Green */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    padding: 5px 5px;
+
+    transition: background 0.5s;
+}
+button:hover{
+    background: #385746;
+}
+
+a{
+    font-style: italic;
+    color: #56876D;
+    text-decoration: none;
+}
+
+a:hover{
+    transition: color 0.3s ease;
+    color: #385746;
+}
+
+#buttons{
+    display: flex;
+    
+    align-items: center;
+}
+
+html, body {
+    height: 100%;
+}
+
+html {
+    background-color: #EDEEE8;
+    display: table;
+    margin: auto;
+}
+
+body {
+    padding: 30px;
+    display: table-cell;
+    vertical-align: middle;    
+}
