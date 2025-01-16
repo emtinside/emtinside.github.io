@@ -6,10 +6,10 @@ ul, p {
   }
 
 h1 {
-    font-family: "Sofia Sans", serif;
-    font-optical-sizing: auto;
-    font-weight: 800;
+    font-family: "Playwrite AU SA", serif;
+    font-weight: 600;
     font-style: normal;
+    font-size: 20px;
 }
   
 .green{
@@ -27,7 +27,8 @@ button{
     font-style: normal;
 
     background: #56876D; /* Green */
-    border: none;
+    border-radius: 15%;
+    border:none;
     color: white;
     text-align: center;
     text-decoration: none;
