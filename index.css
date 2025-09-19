@@ -93,7 +93,7 @@ body {
 /* Icon image inside */
 #secret img {
     width: 60px;   /* adjust size as you like */
-    height: auto;
+    height: 60px;
     display: block;
 }
 
