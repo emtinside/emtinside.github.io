@@ -3,6 +3,7 @@ ul, p {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+    color: rgb(66, 33, 19);
   }
 
 h1 {
@@ -10,6 +11,7 @@ h1 {
     font-weight: 600;
     font-style: normal;
     font-size: 20px;
+    color: rgb(66, 33, 19);
 }
   
 .green{
@@ -73,4 +75,104 @@ body {
     padding: 30px;
     display: table-cell;
     vertical-align: middle;    
+}
+
+/* Secret icon fixed at top-right */
+#secret {
+    position: fixed;
+    top: 20px;     /* distance from top */
+    right: 20px;   /* distance from right */
+    z-index: 1000; /* stay above other elements */
+    
+    display: inline-block;
+    cursor: pointer;
+    animation: float 3s ease-in-out infinite;
+    transition: transform 0.2s ease;
+}
+
+/* Icon image inside */
+#secret img {
+    width: 60px;   /* adjust size as you like */
+    height: auto;
+    display: block;
+}
+
+/* Shake on hover */
+#secret:hover {
+    animation-name: float, shake;
+    animation-duration: 3s, 0.6s;
+    animation-iteration-count: infinite, 1;
+    animation-timing-function: ease-in-out, linear;
+}
+
+/* Click feedback */
+#secret:active {
+    transform: scale(0.95);
+}
+
+/* Floating animation */
+@keyframes float {
+    0%   { transform: translateY(0) rotate(0deg); }
+    50%  { transform: translateY(-6px) rotate(2deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* Shake animation */
+@keyframes shake {
+    0%   { transform: translate(0,0) rotate(0deg); }
+    10%  { transform: translate(-4px,-1px) rotate(-3deg); }
+    20%  { transform: translate(4px,2px) rotate(3deg); }
+    30%  { transform: translate(-4px,1px) rotate(-2deg); }
+    40%  { transform: translate(4px,-2px) rotate(2deg); }
+    50%  { transform: translate(-2px,1px) rotate(-1deg); }
+    60%  { transform: translate(2px,-1px) rotate(1deg); }
+    70%  { transform: translate(-1px,1px) rotate(-1deg); }
+    80%  { transform: translate(1px,-1px) rotate(1deg); }
+    90%  { transform: translate(-0.5px,0.5px) rotate(-0.5deg); }
+    100% { transform: translate(0,0) rotate(0deg); }
+}
+
+/* Menu styling */
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 500px; /* keeps things tidy */
+}
+
+.menu li {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    font-family: "Sofia Sans", serif;
+    font-size: 16px;
+}
+
+/* Item names */
+.menu .item {
+    font-weight: 600;
+    color: #56876D; /* your green style */
+}
+
+/* Prices aligned right */
+.menu .price {
+    text-align: right;
+    margin-left: 20px;
+    white-space: nowrap; /* keeps price from wrapping */
+}
+
+/* Menu container images */
+.menu-image {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.menu-image img {
+    width: 33%;          /* make image stretch with menu width */
+    max-width: 250px;     /* same as menu width */
+    height: auto;         /* keeps proportions */
+    image-rendering: auto;
+    filter: brightness(0) saturate(100%) invert(28%) sepia(25%) 
+            saturate(640%) hue-rotate(10deg) brightness(90%) contrast(90%);
 }
