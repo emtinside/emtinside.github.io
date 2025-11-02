@@ -1,5 +1,5 @@
 ul, p {
-    font-family: "Sofia Sans", serif;
+    font-family: "Sofia Sans", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
@@ -7,10 +7,10 @@ ul, p {
   }
 
 h1 {
-    font-family: "Playwrite AU SA", serif;
+    font-family: "Mulish", sans-serif;
     font-weight: 600;
     font-style: normal;
-    font-size: 20px;
+    font-size: 30px;
     color: rgb(66, 33, 19);
 }
   
@@ -29,8 +29,7 @@ button{
     font-style: normal;
 
     background: #56876D; /* Green */
-    border-radius: 15%;
-    border:none;
+    border: none;
     color: white;
     text-align: center;
     text-decoration: none;
@@ -57,7 +56,8 @@ a:hover{
 
 #buttons{
     display: flex;
-    
+    width: 40%;
+    justify-content: space-between;
     align-items: center;
 }
 
