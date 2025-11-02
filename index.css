@@ -7,7 +7,7 @@ ul, p {
   }
 
 h1 {
-    font-family: "Mulish", sans-serif;
+    font-family: "Sofia Sans", sans-serif;
     font-weight: 600;
     font-style: normal;
     font-size: 30px;
@@ -56,7 +56,7 @@ a:hover{
 
 #buttons{
     display: flex;
-    width: 40%;
+    width: 30vw;
     justify-content: space-between;
     align-items: center;
 }
