@@ -1,30 +1,73 @@
-// Scroll-to-Reveal Animation using Intersection Observer API
+// Hover-to-Reveal Animation
 const revealElements = document.querySelectorAll('.reveal');
 
-const observerOptions = {
-    threshold: 0.1, // Trigger when 10% of the element is visible
-    rootMargin: '0px 0px -50px 0px' // Trigger 50px before element is fully in view
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            // Add a small delay based on element position for staggered effect
-            const delay = Array.from(revealElements).indexOf(entry.target) * 100;
-            setTimeout(() => {
-                entry.target.classList.add('appear');
-            }, delay);
-        } else {
-            // Remove the appear class when scrolling past the element
-            entry.target.classList.remove('appear');
+revealElements.forEach((element) => {
+    element.addEventListener('mouseenter', () => {
+        // Find the closest parent section (hero or content-section)
+        const section = element.closest('.content-section');
+        
+        if (section) {
+            // Reveal all .reveal elements within this section
+            const revealInSection = section.querySelectorAll('.reveal');
+            revealInSection.forEach((el) => {
+                el.classList.add('appear');
+            });
         }
     });
-}, observerOptions);
-
-// Observe all elements with the .reveal class
-revealElements.forEach((element) => {
-    observer.observe(element);
 });
+
+// Custom Cursor Glow Effect
+const cursorGlow = document.createElement('div');
+cursorGlow.classList.add('cursor-glow');
+document.body.appendChild(cursorGlow);
+
+let mouseX = 0;
+let mouseY = 0;
+
+document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    
+    // Move the glow to cursor position
+    cursorGlow.style.left = mouseX + 'px';
+    cursorGlow.style.top = mouseY + 'px';
+    
+    // Check proximity to .reveal elements
+    let isNearReveal = false;
+    const threshold = 250; // Distance in pixels
+    
+    revealElements.forEach((element) => {
+        const rect = element.getBoundingClientRect();
+        const elementCenterX = rect.left + rect.width / 2;
+        const elementCenterY = rect.top + rect.height / 2;
+        
+        const distance = Math.sqrt(
+            Math.pow(mouseX - elementCenterX, 2) + 
+            Math.pow(mouseY - elementCenterY, 2)
+        );
+        
+        if (distance < threshold) {
+            isNearReveal = true;
+        }
+    });
+    
+    // Update glow color based on proximity
+    if (isNearReveal) {
+        cursorGlow.classList.add('near-reveal');
+    } else {
+        cursorGlow.classList.remove('near-reveal');
+    }
+});
+
+// Hide glow when mouse leaves window
+document.addEventListener('mouseleave', () => {
+    cursorGlow.style.opacity = '0';
+});
+
+document.addEventListener('mouseenter', () => {
+    cursorGlow.style.opacity = '1';
+});
+
 
 // Dynamic Gradient Background based on Scroll Position
 function updateGradient() {
@@ -48,6 +91,7 @@ function updateGradient() {
 
 // Update gradient on scroll
 window.addEventListener('scroll', updateGradient);
+
 
 // Initial update
 updateGradient();
