@@ -230,7 +230,7 @@ body {
         0 0 15px rgba(255, 255, 255, 0.8),
         0 0 30px rgba(255, 255, 255, 0.6);
     filter: blur(10px);
-    transition: box-shadow 0.2s ease-in-out;
+    transition: box-shadow 0.4s ease-in-out;
     transform: translate(-50%, -50%);
     opacity: 0.8;
 }
