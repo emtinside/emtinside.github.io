@@ -1,22 +1,6 @@
-ul, p {
-    font-family: "Sofia Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    color: rgb(66, 33, 19);
-  }
-
-h1 {
-    font-family: "Mulish", sans-serif;
-    font-weight: 600;
-    font-style: normal;
-    font-size: 30px;
-    color: rgb(66, 33, 19);
-}
   
-
 button{
-    font-family: "Andika", serif;
+   font-family: "Mulish", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
@@ -37,7 +21,7 @@ button:hover{
 }
 
 a{
-    font-family: "Libertinus Serif Display", serif;
+    font-family: "Mulish", sans-serif;
     color: #cb0547;
     text-decoration: none;
 }
@@ -112,20 +96,24 @@ body {
 }
 
 .hero h1 {
-    font-family: "Andika", serif;
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
+    font-family: "Reenie Beanie", cursive;
+    font-weight: 400;
+    font-style: 500;
+    font-size: 2rem;
+    color: #720303;
+    margin-bottom: 0.25rem;
     position: relative;
     z-index: 1;
 }
 
 .hero p {
-    font-family: "Libertinus Serif Display", serif;
+    font-family: "Reenie Beanie", cursive;
     max-width: 600px;
+    font-style: italic;
     line-height: 1.2rem;
     margin-bottom: 1.5rem;
-    font-size: 1.1rem;
-    color: #422113; /*#b54a6f;*/
+    font-size: 1.2rem;
+    color: #720303; /*#b54a6f;*/
     position: relative;
     z-index: 1;
 }
@@ -154,15 +142,18 @@ body {
 }
 
 .content-section h2 {
-    font-family: "Libertinus Serif Display", serif;
+    font-family: "Reenie Beanie", cursive;
+    font-weight: 600;
+    font-style: normal;
+    color: rgb(66, 33, 19);
     font-size: 1.4rem;
     font-weight: bold;
     margin-bottom: 2rem;
 }
 
 .content-section p {
-    font-family: "Libertinus Serif Display", serif;
-    font-size: 1rem;
+    font-family: "Mulish", sans-serif;
+    font-size: 0.9rem;
     max-width: 600px;
     line-height: 1.2rem;
     margin-bottom: 1.5rem;
@@ -170,7 +161,7 @@ body {
 }
 
 .content-section-small p {
-    font-family: "Libertinus Serif Display", serif;
+    font-family: "Mulish", sans-serif;
     font-size: 1rem;
     max-width: 600px;
     line-height: 1.2rem;
@@ -206,7 +197,7 @@ body {
 }
 
 .bottom-bar a {
-    font-family: "Libertinus Serif Display", serif;
+    font-family: "Mulish", sans-serif;
     font-size: 1rem;
     color: #f4f1e3;
     text-decoration: none;
@@ -218,18 +209,17 @@ body {
     color: #d94848;
 }
 
-.pets-image {
-    display: block;
-    max-width: 400px;
-    height: auto;
-    margin: 2rem auto;
+.description {
+    color: #d94848;
+    margin-left: 0.5rem;
+    font-style: italic;
 }
 
 /* Custom Cursor Glow */
 .cursor-glow {
     position: fixed;
-    width: 50px;
-    height: 50px;
+    width: 25px;
+    height: 25px;
     border: none;
     border-radius: 50%;
     pointer-events: none;
@@ -240,14 +230,14 @@ body {
         0 0 15px rgba(255, 255, 255, 0.8),
         0 0 30px rgba(255, 255, 255, 0.6);
     filter: blur(10px);
-    transition: box-shadow 0.6s ease-in-out;
+    transition: box-shadow 0.2s ease-in-out;
     transform: translate(-50%, -50%);
     opacity: 0.8;
 }
 
 .cursor-glow.near-reveal {
     box-shadow: 
-        0 0 5px rgba(240, 161, 173, 1),
-        0 0 15px rgba(240, 161, 173, 0.8),
-        0 0 40px rgba(240, 161, 173, 0.6);
+        0 0 5px rgb(218, 59, 83),
+        0 0 15px rgb(255, 85, 110),
+        0 0 40px rgba(255, 176, 188, 0.8);
 }

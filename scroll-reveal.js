@@ -34,7 +34,7 @@ document.addEventListener('mousemove', (e) => {
     
     // Check proximity to .reveal elements
     let isNearReveal = false;
-    const threshold = 250; // Distance in pixels
+    const threshold = 200; // Distance in pixels
     
     revealElements.forEach((element) => {
         const rect = element.getBoundingClientRect();
