@@ -1,0 +1,302 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --red: #C0392B;
+  --red-dark: #a93c49;
+  --blush: #F9EDED;
+  --yellow: #F5E6A3;
+  --text: #3b1012;
+  --muted: #6B3D3D;
+  --radius: 3px;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--text);
+}
+
+/* ─── SHARED BUTTONS ─────────────────────────────── */
+.btn {
+  display: inline-block;
+  padding: 12px 12px;
+  background: var(--red);
+  color: #fff;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+.btn:hover { background: var(--red-dark); }
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 48px;
+}
+
+/* ─── SHARED NAV ─────────────────────────────────── */
+.nav-home {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 44px;
+  height: 44px;
+  background-color: transparent;        /* remove red circle */
+  background-image: url('tomato.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 0;                      /* remove circle shape */
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.15s;            /* subtle hover instead */
+}
+
+@keyframes shake {
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(-10deg); }
+  50%  { transform: rotate(10deg); }
+  75%  { transform: rotate(-10deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.nav-home:hover {
+  background-color: transparent;
+  opacity: 1;
+  animation: shake 0.4s ease;
+}
+
+/* ─── PLACEHOLDER SCENE ──────────────────────────── */
+.placeholder-scene {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #b8dff0 0%, #d4eefa 60%, #7db85a 60%, #5c9940 100%);
+  position: relative;
+}
+
+/* ─── HOME ──────────────────────────────────────── */
+.home-page {
+  background: var(--blush);
+  padding: 60px 60px 80px;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.home-page h1 {
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 900;
+  color: var(--red);
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.home-page .subtitle {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  color: var(--red);
+  text-transform: uppercase;
+  margin-bottom: 36px;
+}
+
+.home-page .bio {
+  max-width: 520px;
+  line-height: 1.75;
+  font-size: 0.9rem;
+  font-weight: 525;
+  color: var(--text);
+}
+
+.home-page .bio p { margin-bottom: 16px; }
+
+.home-page .bio ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin-top: -4px;
+}
+
+.home-page .bio li { margin-bottom: 4px; }
+
+.home-page .bio a {
+  color: var(--red);
+  text-decoration: none;
+  font-weight: 700;
+}
+.home-page .bio a:hover { text-decoration: underline; }
+
+.deco-img {
+  position: absolute;
+  right: 90px;
+  bottom: 90px;
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+}
+
+@media (max-width: 640px) {
+  .deco-img { display: none; }
+}
+
+/* ─── CERAMICS ───────────────────────────────────── */
+.ceramics-page {
+  background: var(--yellow);
+  padding: 60px 48px 80px;
+  position: relative;
+  min-height: 100vh;
+}
+
+.ceramics-page h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  color: var(--red);
+  margin-bottom: 36px;
+  margin-top: 12px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gallery-item {
+  aspect-ratio: 1 / 1;
+  background: #d0e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  display: block;
+  text-decoration: none;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(44, 10, 10, 0.52);
+  backdrop-filter: blur(2px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px 18px;
+  opacity: 0;
+  transition: opacity 0.22s ease;
+}
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+
+.gallery-overlay .piece-name {
+  font-size: 1rem;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+.gallery-overlay .piece-date {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.75);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ─── PROJECT ────────────────────────────────────── */
+.project-page {
+  background: var(--blush);
+  padding: 60px 48px 80px;
+  position: relative;
+  min-height: 100vh;
+}
+
+.project-page h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  color: var(--red);
+  margin-bottom: 36px;
+  margin-top: 12px;
+}
+
+.project-layout {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.project-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.project-img-cell {
+  aspect-ratio: 1 / 1;
+  background: #d0e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.project-img-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.project-img-cell .placeholder-scene {
+  background: linear-gradient(180deg, #b8dff0 0%, #d4eefa 55%, #7db85a 55%, #5c9940 100%);
+}
+
+.project-text p {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────── */
+@media (max-width: 640px) {
+  .home-page, .ceramics-page, .project-page { padding: 48px 24px 60px; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .project-layout { grid-template-columns: 1fr; }
+  .home-page::after { display: none; }
+
+  .ceramics-page,
+  .project-page {
+    padding-top: 32px;
+  }
+
+  .nav-home {
+    position: static;
+    flex-shrink: 0;
+  }
+
+  .page-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+
+  .page-header h2 {
+    margin-bottom: 0;
+  }
+}
