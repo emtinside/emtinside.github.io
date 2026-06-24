@@ -13,6 +13,7 @@
 body {
   font-family: 'Montserrat', sans-serif;
   color: var(--text);
+  background: var(--blush);
 }
 
 /* ─── SHARED BUTTONS ─────────────────────────────── */
@@ -21,7 +22,7 @@ body {
   padding: 12px 12px;
   background: var(--red);
   color: #fff;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 0.78rem;
   font-weight: 900;
   letter-spacing: 0.1em;
@@ -38,7 +39,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 48px;
+  margin-top: auto;
 }
 
 /* ─── SHARED NAV ─────────────────────────────────── */
@@ -48,18 +49,18 @@ body {
   left: 20px;
   width: 44px;
   height: 44px;
-  background-color: transparent;        /* remove red circle */
+  background-color: transparent;        
   background-image: url('tomato.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  border-radius: 0;                      /* remove circle shape */
+  border-radius: 0;                      
   border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.15s;            /* subtle hover instead */
+  transition: opacity 0.15s;            
 }
 
 @keyframes shake {
@@ -87,10 +88,12 @@ body {
 /* ─── HOME ──────────────────────────────────────── */
 .home-page {
   background: var(--blush);
-  padding: 60px 60px 80px;
+  padding: 60px 60px ;
   position: relative;
-  overflow: hidden;
-  min-height: 100vh;
+  height: 100vh;
+
+  display: flex;               /* ← add */
+  flex-direction: column;      /* ← add */
 }
 
 .home-page h1 {
@@ -107,7 +110,7 @@ body {
   letter-spacing: 0.13em;
   color: var(--red);
   text-transform: uppercase;
-  margin-bottom: 36px;
+  margin-bottom: 25px;
 }
 
 .home-page .bio {
@@ -128,12 +131,13 @@ body {
 
 .home-page .bio li { margin-bottom: 4px; }
 
-.home-page .bio a {
+.home-page .bio a, a {
   color: var(--red);
   text-decoration: none;
   font-weight: 700;
 }
-.home-page .bio a:hover { text-decoration: underline; }
+
+.home-page .bio a:hover, a:hover { text-decoration: underline; }
 
 .deco-img {
   position: absolute;
@@ -252,7 +256,7 @@ body {
 .project-img-cell {
   aspect-ratio: 1 / 1;
   background: #d0e8f0;
-  border-radius: 8px;
+  border-radius: 3px;
   overflow: hidden;
 }
 .project-img-cell img {
@@ -272,9 +276,43 @@ body {
   margin-bottom: 20px;
 }
 
+/* ─── 404 PAGE ───────────────────────────────────── */
+.error-page {
+  background: var(--blush);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.error-box {
+  text-align: center;
+  padding: 24px;
+}
+
+.error-box h1 {
+  font-size: clamp(2.8rem, 8vw, 4.5rem);
+  font-weight: 900;
+  color: var(--red);
+  margin-bottom: 20px;
+}
+
+.error-box p {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: 700;
+  color: var(--red);
+  line-height: 1.6;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+
+
 /* ─── RESPONSIVE ─────────────────────────────────── */
 @media (max-width: 640px) {
-  .home-page, .ceramics-page, .project-page { padding: 48px 24px 60px; }
+  .home-page, .ceramics-page, .project-page, .error-page { padding: 48px 24px 60px; }
   .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   .project-layout { grid-template-columns: 1fr; }
   .home-page::after { display: none; }
@@ -298,5 +336,9 @@ body {
 
   .page-header h2 {
     margin-bottom: 0;
+  }
+
+  .btn-row {
+    padding-bottom: 12px;
   }
 }
